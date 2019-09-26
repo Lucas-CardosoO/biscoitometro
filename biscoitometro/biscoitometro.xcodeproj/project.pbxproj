@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A140F846233D401C00E07DEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140F845233D401C00E07DEA /* AppDelegate.swift */; };
+		A140F848233D401C00E07DEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140F847233D401C00E07DEA /* SceneDelegate.swift */; };
+		A140F84B233D401C00E07DEA /* biscoitometro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A140F849233D401C00E07DEA /* biscoitometro.xcdatamodeld */; };
+		A140F84D233D401C00E07DEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140F84C233D401C00E07DEA /* ContentView.swift */; };
+		A140F84F233D401D00E07DEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A140F84E233D401D00E07DEA /* Assets.xcassets */; };
+		A140F852233D401D00E07DEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A140F851233D401D00E07DEA /* Preview Assets.xcassets */; };
+		A140F855233D401D00E07DEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A140F853233D401D00E07DEA /* LaunchScreen.storyboard */; };
+		A140F860233D401D00E07DEA /* biscoitometroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140F85F233D401D00E07DEA /* biscoitometroTests.swift */; };
+		A140F86B233D401D00E07DEA /* biscoitometroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140F86A233D401D00E07DEA /* biscoitometroUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A140F85C233D401D00E07DEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A140F83A233D401C00E07DEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A140F841233D401C00E07DEA;
+			remoteInfo = biscoitometro;
+		};
+		A140F867233D401D00E07DEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A140F83A233D401C00E07DEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A140F841233D401C00E07DEA;
+			remoteInfo = biscoitometro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A140F842233D401C00E07DEA /* biscoitometro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biscoitometro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A140F845233D401C00E07DEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A140F847233D401C00E07DEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A140F84A233D401C00E07DEA /* biscoitometro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = biscoitometro.xcdatamodel; sourceTree = "<group>"; };
+		A140F84C233D401C00E07DEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A140F84E233D401D00E07DEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A140F851233D401D00E07DEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A140F854233D401D00E07DEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A140F856233D401D00E07DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A140F85B233D401D00E07DEA /* biscoitometroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biscoitometroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A140F85F233D401D00E07DEA /* biscoitometroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biscoitometroTests.swift; sourceTree = "<group>"; };
+		A140F861233D401D00E07DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A140F866233D401D00E07DEA /* biscoitometroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biscoitometroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A140F86A233D401D00E07DEA /* biscoitometroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biscoitometroUITests.swift; sourceTree = "<group>"; };
+		A140F86C233D401D00E07DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A140F83F233D401C00E07DEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A140F858233D401D00E07DEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A140F863233D401D00E07DEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A140F839233D401C00E07DEA = {
+			isa = PBXGroup;
+			children = (
+				A140F844233D401C00E07DEA /* biscoitometro */,
+				A140F85E233D401D00E07DEA /* biscoitometroTests */,
+				A140F869233D401D00E07DEA /* biscoitometroUITests */,
+				A140F843233D401C00E07DEA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A140F843233D401C00E07DEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A140F842233D401C00E07DEA /* biscoitometro.app */,
+				A140F85B233D401D00E07DEA /* biscoitometroTests.xctest */,
+				A140F866233D401D00E07DEA /* biscoitometroUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A140F844233D401C00E07DEA /* biscoitometro */ = {
+			isa = PBXGroup;
+			children = (
+				A140F845233D401C00E07DEA /* AppDelegate.swift */,
+				A140F847233D401C00E07DEA /* SceneDelegate.swift */,
+				A140F84C233D401C00E07DEA /* ContentView.swift */,
+				A140F84E233D401D00E07DEA /* Assets.xcassets */,
+				A140F853233D401D00E07DEA /* LaunchScreen.storyboard */,
+				A140F856233D401D00E07DEA /* Info.plist */,
+				A140F849233D401C00E07DEA /* biscoitometro.xcdatamodeld */,
+				A140F850233D401D00E07DEA /* Preview Content */,
+			);
+			path = biscoitometro;
+			sourceTree = "<group>";
+		};
+		A140F850233D401D00E07DEA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A140F851233D401D00E07DEA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A140F85E233D401D00E07DEA /* biscoitometroTests */ = {
+			isa = PBXGroup;
+			children = (
+				A140F85F233D401D00E07DEA /* biscoitometroTests.swift */,
+				A140F861233D401D00E07DEA /* Info.plist */,
+			);
+			path = biscoitometroTests;
+			sourceTree = "<group>";
+		};
+		A140F869233D401D00E07DEA /* biscoitometroUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A140F86A233D401D00E07DEA /* biscoitometroUITests.swift */,
+				A140F86C233D401D00E07DEA /* Info.plist */,
+			);
+			path = biscoitometroUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A140F841233D401C00E07DEA /* biscoitometro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A140F86F233D401D00E07DEA /* Build configuration list for PBXNativeTarget "biscoitometro" */;
+			buildPhases = (
+				A140F83E233D401C00E07DEA /* Sources */,
+				A140F83F233D401C00E07DEA /* Frameworks */,
+				A140F840233D401C00E07DEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = biscoitometro;
+			productName = biscoitometro;
+			productReference = A140F842233D401C00E07DEA /* biscoitometro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A140F85A233D401D00E07DEA /* biscoitometroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A140F872233D401D00E07DEA /* Build configuration list for PBXNativeTarget "biscoitometroTests" */;
+			buildPhases = (
+				A140F857233D401D00E07DEA /* Sources */,
+				A140F858233D401D00E07DEA /* Frameworks */,
+				A140F859233D401D00E07DEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A140F85D233D401D00E07DEA /* PBXTargetDependency */,
+			);
+			name = biscoitometroTests;
+			productName = biscoitometroTests;
+			productReference = A140F85B233D401D00E07DEA /* biscoitometroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A140F865233D401D00E07DEA /* biscoitometroUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A140F875233D401D00E07DEA /* Build configuration list for PBXNativeTarget "biscoitometroUITests" */;
+			buildPhases = (
+				A140F862233D401D00E07DEA /* Sources */,
+				A140F863233D401D00E07DEA /* Frameworks */,
+				A140F864233D401D00E07DEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A140F868233D401D00E07DEA /* PBXTargetDependency */,
+			);
+			name = biscoitometroUITests;
+			productName = biscoitometroUITests;
+			productReference = A140F866233D401D00E07DEA /* biscoitometroUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A140F83A233D401C00E07DEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Lucas Cardoso";
+				TargetAttributes = {
+					A140F841233D401C00E07DEA = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					A140F85A233D401D00E07DEA = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = A140F841233D401C00E07DEA;
+					};
+					A140F865233D401D00E07DEA = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = A140F841233D401C00E07DEA;
+					};
+				};
+			};
+			buildConfigurationList = A140F83D233D401C00E07DEA /* Build configuration list for PBXProject "biscoitometro" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A140F839233D401C00E07DEA;
+			productRefGroup = A140F843233D401C00E07DEA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A140F841233D401C00E07DEA /* biscoitometro */,
+				A140F85A233D401D00E07DEA /* biscoitometroTests */,
+				A140F865233D401D00E07DEA /* biscoitometroUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A140F840233D401C00E07DEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A140F855233D401D00E07DEA /* LaunchScreen.storyboard in Resources */,
+				A140F852233D401D00E07DEA /* Preview Assets.xcassets in Resources */,
+				A140F84F233D401D00E07DEA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A140F859233D401D00E07DEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A140F864233D401D00E07DEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A140F83E233D401C00E07DEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A140F846233D401C00E07DEA /* AppDelegate.swift in Sources */,
+				A140F848233D401C00E07DEA /* SceneDelegate.swift in Sources */,
+				A140F84D233D401C00E07DEA /* ContentView.swift in Sources */,
+				A140F84B233D401C00E07DEA /* biscoitometro.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A140F857233D401D00E07DEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A140F860233D401D00E07DEA /* biscoitometroTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A140F862233D401D00E07DEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A140F86B233D401D00E07DEA /* biscoitometroUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A140F85D233D401D00E07DEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A140F841233D401C00E07DEA /* biscoitometro */;
+			targetProxy = A140F85C233D401D00E07DEA /* PBXContainerItemProxy */;
+		};
+		A140F868233D401D00E07DEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A140F841233D401C00E07DEA /* biscoitometro */;
+			targetProxy = A140F867233D401D00E07DEA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A140F853233D401D00E07DEA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A140F854233D401D00E07DEA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A140F86D233D401D00E07DEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A140F86E233D401D00E07DEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A140F870233D401D00E07DEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"biscoitometro/Preview Content\"";
+				DEVELOPMENT_TEAM = DKR9MLJ8T7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = biscoitometro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = academy.biscoitometro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A140F871233D401D00E07DEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"biscoitometro/Preview Content\"";
+				DEVELOPMENT_TEAM = DKR9MLJ8T7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = biscoitometro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = academy.biscoitometro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A140F873233D401D00E07DEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DKR9MLJ8T7;
+				INFOPLIST_FILE = biscoitometroTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = academy.biscoitometroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/biscoitometro.app/biscoitometro";
+			};
+			name = Debug;
+		};
+		A140F874233D401D00E07DEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DKR9MLJ8T7;
+				INFOPLIST_FILE = biscoitometroTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = academy.biscoitometroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/biscoitometro.app/biscoitometro";
+			};
+			name = Release;
+		};
+		A140F876233D401D00E07DEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DKR9MLJ8T7;
+				INFOPLIST_FILE = biscoitometroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = academy.biscoitometroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = biscoitometro;
+			};
+			name = Debug;
+		};
+		A140F877233D401D00E07DEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DKR9MLJ8T7;
+				INFOPLIST_FILE = biscoitometroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = academy.biscoitometroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = biscoitometro;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A140F83D233D401C00E07DEA /* Build configuration list for PBXProject "biscoitometro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A140F86D233D401D00E07DEA /* Debug */,
+				A140F86E233D401D00E07DEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A140F86F233D401D00E07DEA /* Build configuration list for PBXNativeTarget "biscoitometro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A140F870233D401D00E07DEA /* Debug */,
+				A140F871233D401D00E07DEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A140F872233D401D00E07DEA /* Build configuration list for PBXNativeTarget "biscoitometroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A140F873233D401D00E07DEA /* Debug */,
+				A140F874233D401D00E07DEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A140F875233D401D00E07DEA /* Build configuration list for PBXNativeTarget "biscoitometroUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A140F876233D401D00E07DEA /* Debug */,
+				A140F877233D401D00E07DEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A140F849233D401C00E07DEA /* biscoitometro.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A140F84A233D401C00E07DEA /* biscoitometro.xcdatamodel */,
+			);
+			currentVersion = A140F84A233D401C00E07DEA /* biscoitometro.xcdatamodel */;
+			path = biscoitometro.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A140F83A233D401C00E07DEA /* Project object */;
+}
