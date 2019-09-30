@@ -42,7 +42,7 @@ class Network {
     func searchMovie(
       search movie: String
     ) -> AnyPublisher<Movie, NetworkError> {
-      return makeRequest(with: makeSearchMoviesComponents(searchTerm: movie))
+        return makeRequest(with: makeSearchMoviesComponents(searchTerm: movie))
     }
     
     private func makeRequest <T> (with components: URLComponents) -> AnyPublisher<T, NetworkError> where T: Decodable  {
@@ -56,7 +56,7 @@ class Network {
                 .networkProblem
             }
             .flatMap(maxPublishers: .max(1)) { pair in
-              decode(pair.data)
+                decode(pair.data)
             }
             .eraseToAnyPublisher()
     }
