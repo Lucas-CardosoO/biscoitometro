@@ -39,6 +39,22 @@ class Network {
         return components
     }
     
+    private func makeSearchCastComponents (movie id: Int) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = MovieDBAPI.scheme
+        components.host = MovieDBAPI.host
+        components.path = MovieDBAPI.path + Requests.credits(id: id).path
+        
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: MovieDBAPI.key)
+        ]
+        return components
+    }
+    
+    func searchCredits(movie id: Int) -> AnyPublisher<SearchCreditsResult,NetworkError> {
+        return makeRequest(with: makeSearchCastComponents(movie: id))
+    }
+    
     func searchMovie(
       search movie: String
     ) -> AnyPublisher<SearchMovieResult, NetworkError> {
