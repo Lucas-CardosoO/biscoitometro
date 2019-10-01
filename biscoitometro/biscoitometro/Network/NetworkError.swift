@@ -50,8 +50,12 @@ enum NetworkError: Error {
             return ErrorMessages.Default.NotFound
         case .networkProblem, .unknown:
             return ErrorMessages.Default.ServerError
-        case .requestFailed, .badRequest, .invalidData:
+        case .requestFailed:
             return ErrorMessages.Default.RequestFailed
+        case .badRequest:
+            return ErrorMessages.Default.BadRequest
+        case .invalidData:
+            return ErrorMessages.Default.InvalidData
         }
     }
     
@@ -68,6 +72,8 @@ extension NetworkError {
             static let NotAuthorized = "This information is not available"
             static let NotFound = "Bad request error"
             static let RequestFailed = "Resquest failed"
+            static let BadRequest = "Bad Request"
+            static let InvalidData = "Invalid data"
         }
         
     }

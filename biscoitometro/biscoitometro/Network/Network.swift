@@ -41,7 +41,7 @@ class Network {
     
     func searchMovie(
       search movie: String
-    ) -> AnyPublisher<Movie, NetworkError> {
+    ) -> AnyPublisher<SearchMovieResult, NetworkError> {
         return makeRequest(with: makeSearchMoviesComponents(searchTerm: movie))
     }
     

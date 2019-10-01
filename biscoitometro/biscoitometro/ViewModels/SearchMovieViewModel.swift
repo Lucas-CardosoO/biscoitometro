@@ -32,14 +32,31 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
                 receiveCompletion: { [weak self] value in
                 guard let self = self else { return }
                 switch value {
-                case .failure:
-                    self.dataSource = "Error"
+                case .failure(.networkProblem):
+                    self.dataSource = NetworkError.networkProblem.description
                 case .finished:
                     break
-                }
+                case .failure(.notAuthenticated):
+                    self.dataSource = NetworkError.notAuthenticated.description
+                case .failure(.notFound):
+                    self.dataSource = NetworkError.notFound.description
+                case .failure(.badRequest):
+                    self.dataSource = NetworkError.badRequest.description
+                case .failure(.requestFailed):
+                    self.dataSource = NetworkError.requestFailed.description
+                case .failure(.invalidData):
+                    self.dataSource = NetworkError.invalidData.description
+                case .failure(.unknown(_)):
+                    self.dataSource = "Unknown Error"
+                    }
                 }, receiveValue: { [weak self] movieResult in
                     guard let self = self else { return }
-                    self.dataSource = movieResult.title
+                    if (movieResult.results.count > 0) {
+                        self.dataSource = movieResult.results[0].title
+                        print(self.dataSource)
+                    } else {
+                        self.dataSource = "Movie Not Found"
+                    }
             })
         .store(in: &disposables)
     }
