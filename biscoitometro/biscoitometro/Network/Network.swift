@@ -28,7 +28,7 @@ class Network {
         var components = URLComponents()
         components.scheme = MovieDBAPI.scheme
         components.host = MovieDBAPI.host
-        components.path = MovieDBAPI.path + Requests.search.path
+        components.path = MovieDBAPI.path + Requests.searchMovie.path
         
         components.queryItems = [
             URLQueryItem(name: "api_key", value: MovieDBAPI.key),
@@ -51,6 +51,20 @@ class Network {
         return components
     }
     
+    private func makeSearchActorComponents (searchTerm: String) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = MovieDBAPI.scheme
+        components.host = MovieDBAPI.host
+        components.path = MovieDBAPI.path + Requests.searchActor.path
+        
+        components.queryItems = [
+            URLQueryItem(name: "query", value: searchTerm),
+            URLQueryItem(name: "api_key", value: MovieDBAPI.key),
+            URLQueryItem(name: "include_adult", value: "false")
+        ]
+        return components
+    }
+    
     func searchCredits(movie id: Int) -> AnyPublisher<SearchCreditsResult,NetworkError> {
         return makeRequest(with: makeSearchCastComponents(movie: id))
     }
@@ -59,6 +73,10 @@ class Network {
       search movie: String
     ) -> AnyPublisher<SearchMovieResult, NetworkError> {
         return makeRequest(with: makeSearchMoviesComponents(searchTerm: movie))
+    }
+    
+    func searchActor (search actor: String) -> AnyPublisher<SearchActorResult, NetworkError>{
+        return makeRequest(with: makeSearchActorComponents(searchTerm: actor))
     }
     
     private func makeRequest <T> (with components: URLComponents) -> AnyPublisher<T, NetworkError> where T: Decodable  {
