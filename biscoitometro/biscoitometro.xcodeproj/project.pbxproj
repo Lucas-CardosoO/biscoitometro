@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1710633423451C43003FC044 /* SearchActorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710633323451C43003FC044 /* SearchActorResult.swift */; };
 		A140F846233D401C00E07DEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140F845233D401C00E07DEA /* AppDelegate.swift */; };
 		A140F848233D401C00E07DEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140F847233D401C00E07DEA /* SceneDelegate.swift */; };
 		A140F84B233D401C00E07DEA /* biscoitometro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A140F849233D401C00E07DEA /* biscoitometro.xcdatamodeld */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1710633323451C43003FC044 /* SearchActorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchActorResult.swift; sourceTree = "<group>"; };
 		A140F842233D401C00E07DEA /* biscoitometro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biscoitometro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A140F845233D401C00E07DEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A140F847233D401C00E07DEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				A1BC830F2342914400682752 /* SearchMovieResult.swift */,
 				A1BC831B2343EEA200682752 /* SearchCreditsResult.swift */,
+				1710633323451C43003FC044 /* SearchActorResult.swift */,
 			);
 			path = "Network Responses";
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				A140F846233D401C00E07DEA /* AppDelegate.swift in Sources */,
 				A1BC83172342973600682752 /* SearchMovieViewModel.swift in Sources */,
 				A1BC83082342759A00682752 /* Requests.swift in Sources */,
+				1710633423451C43003FC044 /* SearchActorResult.swift in Sources */,
 				A1BC830D2342910C00682752 /* Paginable.swift in Sources */,
 				A1BC831E2343F00A00682752 /* Crew.swift in Sources */,
 				A140F848233D401C00E07DEA /* SceneDelegate.swift in Sources */,

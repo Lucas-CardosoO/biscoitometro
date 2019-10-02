@@ -13,8 +13,9 @@ enum Requests {
 //    case getPopular(page: Int)
 //    case getTopRated(page: Int)
 //    case getByGenreId(page: Int, genreId: Int)
-    case search
+    case searchMovie
     case credits(id: Int)
+    case searchActor
 //    case getDetail(id: Int)
 //    case getVideos(id: Int)
 //    case getReviews(page: Int, id: Int)
@@ -24,10 +25,12 @@ enum Requests {
     
     var path: String {
         switch self {
-        case .search:
+        case .searchMovie:
             return "/search/movie"
         case .credits(let id):
             return "/movie/\(id)/credits"
+        case .searchActor:
+            return "/search/person"
         default:
             return "Request Error"
         }
