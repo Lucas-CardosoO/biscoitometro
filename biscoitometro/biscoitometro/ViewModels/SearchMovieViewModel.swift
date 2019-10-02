@@ -24,7 +24,7 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
         _ = $searchMovieText
             .dropFirst(1)
             .debounce(for: .seconds(0.5), scheduler: scheduler)
-            .sink(receiveValue: fetchActor(actor:))
+            .sink(receiveValue: fetchActorCredits(actor:))
     }
     
     func fetchMovie(movie: String) {
@@ -48,7 +48,7 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
     func fetchCast(movie: String) {
         self.fetchMovie(movie: movie)
         if let movie = currMovie {
-            network.searchCredits(movie: movie.id)
+            network.searchMovieCredits(movie: movie.id)
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: errorHandler(value:),
                       receiveValue: { [weak self] creditsResult in
@@ -73,13 +73,33 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
                     guard let self = self else { return }
                     if (actorResult.results.count > 0) {
                         self.currCast = actorResult.results
-                        self.dataSource = self.currCast?[0].name ?? "Not a cast"
+//                        self.dataSource = self.currCast?[0].name ?? "Not a cast"
                     } else {
                         self.dataSource = "Actor not found"
                     }
                     })
             .store(in: &disposables)
         }
+    
+    func fetchActorCredits(actor: String)  {
+        fetchActor(actor: actor)
+        if let actor = currCast?[0] {
+            network.searchActorCredits(actor: actor.id)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: errorHandler(value:),
+                    receiveValue: { [weak self] actorCreditsResult in
+                    guard let self = self else { return }
+                    if (actorCreditsResult.cast.count > 0) {
+                        self.currMovie = actorCreditsResult.cast[0]
+                        print(self.currMovie)
+                        self.dataSource = self.currMovie?.title ?? "Not a movie"
+                    } else {
+                        self.dataSource = "Actor not found"
+                }
+                })
+                .store(in: &disposables)
+        }
+    }
     
     func errorHandler(value: Subscribers.Completion<NetworkError>) {
         switch value {

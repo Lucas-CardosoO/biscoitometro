@@ -39,11 +39,11 @@ class Network {
         return components
     }
     
-    private func makeSearchCastComponents (movie id: Int) -> URLComponents {
+    private func makeMovieCreditsComponents (movie id: Int) -> URLComponents {
         var components = URLComponents()
         components.scheme = MovieDBAPI.scheme
         components.host = MovieDBAPI.host
-        components.path = MovieDBAPI.path + Requests.credits(id: id).path
+        components.path = MovieDBAPI.path + Requests.movieCredits(id: id).path
         
         components.queryItems = [
             URLQueryItem(name: "api_key", value: MovieDBAPI.key)
@@ -65,8 +65,22 @@ class Network {
         return components
     }
     
-    func searchCredits(movie id: Int) -> AnyPublisher<SearchCreditsResult,NetworkError> {
-        return makeRequest(with: makeSearchCastComponents(movie: id))
+    private func makeSearchActorCreditsComponents (actor id: Int) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = MovieDBAPI.scheme
+        components.host = MovieDBAPI.host
+        components.path = MovieDBAPI.path + Requests.actorCredits(id: id).path
+        
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: MovieDBAPI.key)
+        ]
+        return components
+    }
+    
+    // MARK: - Search Request Functions
+    
+    func searchMovieCredits(movie id: Int) -> AnyPublisher<SearchMovieCreditsResult,NetworkError> {
+        return makeRequest(with: makeMovieCreditsComponents(movie: id))
     }
     
     func searchMovie(
@@ -78,6 +92,12 @@ class Network {
     func searchActor (search actor: String) -> AnyPublisher<SearchActorResult, NetworkError>{
         return makeRequest(with: makeSearchActorComponents(searchTerm: actor))
     }
+    
+    func searchActorCredits(actor id: Int) -> AnyPublisher<SearchActorCreditsResult, NetworkError> {
+        return makeRequest(with: makeSearchActorCreditsComponents(actor: id))
+    }
+    
+    // MARK: - Make Request
     
     private func makeRequest <T> (with components: URLComponents) -> AnyPublisher<T, NetworkError> where T: Decodable  {
         guard let url = components.url else {
