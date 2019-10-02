@@ -20,7 +20,7 @@ struct SearchMovieView: View {
     var body: some View {
         VStack {
             List {
-                TextField("Search movie", text: $viewModel.movie)
+                TextField("Search movie", text: $viewModel.searchMovieText)
                 
                 if viewModel.dataSource.isEmpty {
                     Text("Nada ainda")

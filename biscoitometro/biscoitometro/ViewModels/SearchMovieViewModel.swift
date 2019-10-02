@@ -10,19 +10,21 @@ import SwiftUI
 import Combine
 
 class SearchMovieViewModel: ObservableObject, Identifiable {
-    @Published var movie: String = ""
+    @Published var searchMovieText: String = ""
     @Published var dataSource: String = ""
-    
+
+    private var currMovie: Movie?
+    private var currCast: [Actor]?
     private let network: Network
     private var disposables = Set<AnyCancellable>()
     
     init(network: Network, scheduler: DispatchQueue = DispatchQueue(label: "SearchMovieViewModel")) {
         self.network = network
         
-        _ = $movie
+        _ = $searchMovieText
             .dropFirst(1)
             .debounce(for: .seconds(0.5), scheduler: scheduler)
-            .sink(receiveValue: fetchMovie(movie:))
+            .sink(receiveValue: fetchCast(movie:))
     }
     
     func fetchMovie(movie: String) {
@@ -52,12 +54,53 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
                 }, receiveValue: { [weak self] movieResult in
                     guard let self = self else { return }
                     if (movieResult.results.count > 0) {
-                        self.dataSource = movieResult.results[0].title
+                        self.currMovie = movieResult.results[0]
+//                        self.dataSource = self.currMovie?.title ?? "Not a movie"
                         print(self.dataSource)
                     } else {
                         self.dataSource = "Movie Not Found"
                     }
             })
         .store(in: &disposables)
+    }
+    
+    func fetchCast(movie: String) {
+        self.fetchMovie(movie: movie)
+        if let movie = currMovie {
+            network.searchCredits(movie: movie.id)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: {
+                    [weak self] value in
+                    guard let self = self else { return }
+                    switch value {
+                        case .failure(.networkProblem):
+                            self.dataSource = NetworkError.networkProblem.description
+                        case .finished:
+                            break
+                        case .failure(.notAuthenticated):
+                            self.dataSource = NetworkError.notAuthenticated.description
+                        case .failure(.notFound):
+                            self.dataSource = NetworkError.notFound.description
+                        case .failure(.badRequest):
+                            self.dataSource = NetworkError.badRequest.description
+                        case .failure(.requestFailed):
+                            self.dataSource = NetworkError.requestFailed.description
+                        case .failure(.invalidData):
+                            self.dataSource = NetworkError.invalidData.description
+                        case .failure(.unknown(_)):
+                            self.dataSource = "Unknown Error"
+                        }
+                    }, receiveValue: { [weak self] creditsResult in
+                        guard let self = self else { return }
+                        if (creditsResult.cast.count > 0) {
+                            self.currCast = creditsResult.cast
+                            self.dataSource = self.currCast?[0].name ?? "Not a cast"
+                            print(self.dataSource)
+                        } else {
+                            self.dataSource = "Cast Not Found"
+                        }
+                    })
+                .store(in: &disposables)
+        }
     }
 }
