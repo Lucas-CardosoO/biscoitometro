@@ -7,15 +7,15 @@
 //
 
 import Foundation
+import CoreData
 
-struct Movie: Decodable {
+class Movie: NSManagedObject, Decodable, Encodable {
     
-    let id: Int
-    let title: String
-    let overview: String
-    let posterPath: String?
-    let backdropPath: String?
-    let releaseDate: String
+    @NSManaged var id: Int
+    @NSManaged var title: String
+    @NSManaged var overview: String
+    @NSManaged var posterPath: String?
+    @NSManaged var backdropPath: String?
     
     static let posterAspectRatio: Double = 1.5
     
@@ -25,9 +25,35 @@ struct Movie: Decodable {
         case overview
         case posterPath = "poster_path"
         case backdropPath = "backdrop_path"
-        case releaseDate = "release_date"
     }
 
+    required convenience init(from decoder: Decoder) throws {
+
+        guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext,
+            let managedObjectContext = decoder.userInfo[codingUserInfoKeyManagedObjectContext] as? NSManagedObjectContext,
+            let entity = NSEntityDescription.entity(forEntityName: "Movie", in: managedObjectContext) else {
+            fatalError("Failed to decode Movie")
+        }
+        
+        self.init(entity: entity, insertInto: managedObjectContext)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try (container.decodeIfPresent(Int.self, forKey: .id) ?? 12)
+        self.title = try (container.decodeIfPresent(String.self, forKey: .title) ?? "Title Error")
+        self.overview = try (container.decodeIfPresent(String.self, forKey: .overview) ?? "Overview Error")
+        self.posterPath = try (container.decodeIfPresent(String.self, forKey: .posterPath) ?? "Posterpath Error")
+        self.backdropPath = try (container.decodeIfPresent(String.self, forKey: .backdropPath) ?? "Backdrop Error")
+    }
+    
+    // MARK: - Encodable
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(title, forKey: .title)
+        try container.encode(overview, forKey: .overview)
+        try container.encode(posterPath, forKey: .posterPath)
+        try container.encode(backdropPath, forKey: .backdropPath)
+    }
 }
 
 // MARK: - Computed Properties

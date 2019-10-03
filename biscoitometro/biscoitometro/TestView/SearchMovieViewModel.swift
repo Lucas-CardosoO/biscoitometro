@@ -75,7 +75,7 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
                         self.currCast = artistResult.results
 //                        self.dataSource = self.currCast?[0].name ?? "Not a cast"
                     } else {
-                        self.dsataSource = "Artist not found"
+                        self.dataSource = "Artist not found"
                     }
                     })
             .store(in: &disposables)

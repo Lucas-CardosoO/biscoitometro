@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Artist" representedClassName="Artist" syncable="YES" codeGenerationType="class"/>
-    <entity name="Movie" representedClassName="Movie" syncable="YES" codeGenerationType="class"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Artist" representedClassName="Artist" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="profilePath" optional="YES" attributeType="String"/>
+        <relationship name="castedIn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="casts" inverseEntity="Movie"/>
+    </entity>
+    <entity name="Movie" representedClassName="Movie" syncable="YES">
+        <attribute name="backdropPath" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String"/>
+        <attribute name="posterPath" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="casts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artist" inverseName="castedIn" inverseEntity="Artist"/>
+    </entity>
     <elements>
-        <element name="Movie" positionX="-63" positionY="-18" width="128" height="43"/>
-        <element name="Artist" positionX="-54" positionY="-9" width="128" height="43"/>
+        <element name="Artist" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Movie" positionX="-54" positionY="-9" width="128" height="133"/>
     </elements>
 </model>
