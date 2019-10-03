@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Actor: Decodable {
+class Artist: Decodable {
     let name: String
     let id: Int
     let profilePath: String?
