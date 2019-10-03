@@ -10,7 +10,7 @@ import Foundation
 
 struct SearchMovieCreditsResult: Decodable {
     var id: Int
-    let cast: [Actor]
+    let cast: [Artist]
 
     private enum CodingKeys: String, CodingKey {
         case id = "id"

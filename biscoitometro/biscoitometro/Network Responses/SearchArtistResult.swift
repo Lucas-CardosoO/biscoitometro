@@ -1,5 +1,5 @@
 //
-//  SearchActorResult.swift
+//  SearchArtistResult.swift
 //  biscoitometro
 //
 //  Created by René Melo de Lucena on 02/10/19.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct SearchActorResult: Decodable, Paginable {
+struct SearchArtistResult: Decodable, Paginable {
 
-    let results: [Actor]
+    let results: [Artist]
     var currentPage: Int
     var totalPages: Int
     

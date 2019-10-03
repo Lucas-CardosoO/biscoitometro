@@ -14,7 +14,7 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
     @Published var dataSource: String = ""
 
     private var currMovie: Movie?
-    private var currCast: [Actor]?
+    private var currCast: [Artist]?
     private let network: Network
     private var disposables = Set<AnyCancellable>()
     
@@ -24,7 +24,7 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
         _ = $searchMovieText
             .dropFirst(1)
             .debounce(for: .seconds(0.5), scheduler: scheduler)
-            .sink(receiveValue: fetchActorCredits(actor:))
+            .sink(receiveValue: fetchArtistCredits(artist:))
     }
     
     func fetchMovie(movie: String) {
@@ -65,36 +65,36 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
         }
     }
     
-    func fetchActor(actor: String){
-        network.searchActor(search: actor)
+    func fetchArtist(artist: String){
+        network.searchArtist(search: artist)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: errorHandler(value:),
-                  receiveValue: { [weak self] actorResult in
+                  receiveValue: { [weak self] artistResult in
                     guard let self = self else { return }
-                    if (actorResult.results.count > 0) {
-                        self.currCast = actorResult.results
+                    if (artistResult.results.count > 0) {
+                        self.currCast = artistResult.results
 //                        self.dataSource = self.currCast?[0].name ?? "Not a cast"
                     } else {
-                        self.dataSource = "Actor not found"
+                        self.dsataSource = "Artist not found"
                     }
                     })
             .store(in: &disposables)
         }
     
-    func fetchActorCredits(actor: String)  {
-        fetchActor(actor: actor)
-        if let actor = currCast?[0] {
-            network.searchActorCredits(actor: actor.id)
+    func fetchArtistCredits(artist: String)  {
+        fetchArtist(artist: artist)
+        if let artist = currCast?[0] {
+            network.searchArtistCredits(artist: artist.id)
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: errorHandler(value:),
-                    receiveValue: { [weak self] actorCreditsResult in
+                    receiveValue: { [weak self] artistCreditsResult in
                     guard let self = self else { return }
-                    if (actorCreditsResult.cast.count > 0) {
-                        self.currMovie = actorCreditsResult.cast[0]
+                    if (artistCreditsResult.cast.count > 0) {
+                        self.currMovie = artistCreditsResult.cast[0]
                         print(self.currMovie)
                         self.dataSource = self.currMovie?.title ?? "Not a movie"
                     } else {
-                        self.dataSource = "Actor not found"
+                        self.dataSource = "Artist not found"
                 }
                 })
                 .store(in: &disposables)

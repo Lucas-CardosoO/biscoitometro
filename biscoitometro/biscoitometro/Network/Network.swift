@@ -51,11 +51,11 @@ class Network {
         return components
     }
     
-    private func makeSearchActorComponents (searchTerm: String) -> URLComponents {
+    private func makeSearchArtistComponents (searchTerm: String) -> URLComponents {
         var components = URLComponents()
         components.scheme = MovieDBAPI.scheme
         components.host = MovieDBAPI.host
-        components.path = MovieDBAPI.path + Requests.searchActor.path
+        components.path = MovieDBAPI.path + Requests.searchArtist.path
         
         components.queryItems = [
             URLQueryItem(name: "query", value: searchTerm),
@@ -65,11 +65,11 @@ class Network {
         return components
     }
     
-    private func makeSearchActorCreditsComponents (actor id: Int) -> URLComponents {
+    private func makeSearchArtistCreditsComponents (artist id: Int) -> URLComponents {
         var components = URLComponents()
         components.scheme = MovieDBAPI.scheme
         components.host = MovieDBAPI.host
-        components.path = MovieDBAPI.path + Requests.actorCredits(id: id).path
+        components.path = MovieDBAPI.path + Requests.artistCredits(id: id).path
         
         components.queryItems = [
             URLQueryItem(name: "api_key", value: MovieDBAPI.key)
@@ -89,12 +89,12 @@ class Network {
         return makeRequest(with: makeSearchMoviesComponents(searchTerm: movie))
     }
     
-    func searchActor (search actor: String) -> AnyPublisher<SearchActorResult, NetworkError>{
-        return makeRequest(with: makeSearchActorComponents(searchTerm: actor))
+    func searchArtist (search artist: String) -> AnyPublisher<SearchArtistResult, NetworkError>{
+        return makeRequest(with: makeSearchArtistComponents(searchTerm: artist))
     }
     
-    func searchActorCredits(actor id: Int) -> AnyPublisher<SearchActorCreditsResult, NetworkError> {
-        return makeRequest(with: makeSearchActorCreditsComponents(actor: id))
+    func searchArtistCredits(artist id: Int) -> AnyPublisher<SearchArtistCreditsResult, NetworkError> {
+        return makeRequest(with: makeSearchArtistCreditsComponents(artist: id))
     }
     
     // MARK: - Make Request
