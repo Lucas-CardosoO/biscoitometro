@@ -1,14 +1,14 @@
 //
-//  Actor.swift
+//  ArtistDecodable.swift
 //  biscoitometro
 //
-//  Created by Lucas Cardoso on 26/09/19.
+//  Created by Lucas Cardoso on 07/10/19.
 //  Copyright © 2019 Lucas Cardoso. All rights reserved.
 //
 
 import Foundation
 
-class Artist: Decodable {
+class ArtistDecodable: ArtistProtocol, Decodable {
     let name: String
     let id: Int
     let profilePath: String?
@@ -19,3 +19,4 @@ class Artist: Decodable {
         case profilePath = "profile_path"
     }
 }
+

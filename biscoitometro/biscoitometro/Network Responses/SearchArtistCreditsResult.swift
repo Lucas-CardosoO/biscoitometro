@@ -1,5 +1,5 @@
 //
-//  SearchActorCreditsResult.swift
+//  SearchArtistCreditsResult.swift
 //  biscoitometro
 //
 //  Created by René Melo de Lucena on 02/10/19.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct SearchActorCreditsResult: Decodable {
+struct SearchArtistCreditsResult: Decodable {
     let id:Int
-    let cast: [Movie]
+    let cast: [MovieDecodable]
 
     private enum CodingKeys: String, CodingKey {
         case id = "id"

@@ -9,8 +9,7 @@
 import Foundation
 
 struct SearchMovieResult: Decodable, Paginable {
-
-    let results: [Movie]
+    let results: [MovieDecodable]
     var currentPage: Int
     var totalPages: Int
     
