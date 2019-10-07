@@ -13,8 +13,8 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
     @Published var searchMovieText: String = ""
     @Published var dataSource: String = ""
 
-    private var currMovie: Movie?
-    private var currCast: [Artist]?
+    private var currMovie: MovieDecodable?
+    private var currCast: [ArtistDecodable]?
     private let network: Network
     private var disposables = Set<AnyCancellable>()
     
@@ -24,7 +24,7 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
         _ = $searchMovieText
             .dropFirst(1)
             .debounce(for: .seconds(0.5), scheduler: scheduler)
-            .sink(receiveValue: fetchArtistCredits(artist:))
+            .sink(receiveValue: fetchMovie(movie:))
     }
     
     func fetchMovie(movie: String) {

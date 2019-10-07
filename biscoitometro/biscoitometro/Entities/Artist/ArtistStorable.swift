@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import CoreData
+
+class ArtistStorable: NSManagedObject, ArtistProtocol {
+    @NSManaged var name: String
+    @NSManaged var id: Int
+    @NSManaged var profilePath: String?
+}

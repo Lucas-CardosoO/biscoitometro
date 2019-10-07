@@ -13,12 +13,12 @@ import UIKit
 
 func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, NetworkError> {
     let decoder = JSONDecoder()
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     decoder.dateDecodingStrategy = .secondsSince1970
-    
-    if let decoderKey = CodingUserInfoKey.managedObjectContext {
-        decoder.userInfo[decoderKey] = appDelegate?.persistentContainer.viewContext
-    }
+//    
+//    if let decoderKey = CodingUserInfoKey.managedObjectContext {
+//        decoder.userInfo[decoderKey] = appDelegate?.persistentContainer.viewContext
+//    }
     return Just(data)
         .decode(type: T.self, decoder: decoder)
         .mapError { error in

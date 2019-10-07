@@ -10,7 +10,7 @@ import Foundation
 
 struct SearchArtistResult: Decodable, Paginable {
 
-    let results: [Artist]
+    let results: [ArtistDecodable]
     var currentPage: Int
     var totalPages: Int
     

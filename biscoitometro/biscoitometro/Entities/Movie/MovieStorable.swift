@@ -10,10 +10,9 @@ import Foundation
 import CoreData
 
 class MovieStorable: NSManagedObject, MovieProtocol {
-    var id: Int = 12
-    var title: String = "Error ao criar Storable"
-    var overview: String = "Error ao criar Storable"
-    var posterPath: String?
-    var backdropPath: String?
-
+    @NSManaged var id: Int
+    @NSManaged var title: String
+    @NSManaged var overview: String
+    @NSManaged var posterPath: String?
+    @NSManaged var backdropPath: String?
 }
