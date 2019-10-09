@@ -27,6 +27,7 @@ struct SearchMovieView: View {
                 } else {
 //                    TextView(self.viewModel)
                     Text(viewModel.dataSource)
+                    Image(uiImage: viewModel.imageSource)
                 }
             }
         }
