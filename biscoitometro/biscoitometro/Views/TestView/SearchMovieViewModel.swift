@@ -12,7 +12,8 @@ import Combine
 class SearchMovieViewModel: ObservableObject, Identifiable {
     @Published var searchMovieText: String = ""
     @Published var dataSource: String = ""
-
+    @Published var imageSource: UIImage = UIImage()
+    
     private var currMovie: MovieDecodable?
     private var currCast: [ArtistDecodable]?
     private let network: Network
@@ -36,7 +37,12 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
                     guard let self = self else { return }
                     if (movieResult.results.count > 0) {
                         self.currMovie = movieResult.results[0]
-//                        self.dataSource = self.currMovie?.title ?? "Not a movie"
+                        self.dataSource = self.currMovie?.title ?? "Not a movie"
+                        if let currMovie = self.currMovie {
+                            self.fetchImage(movie: currMovie)
+                        } else {
+                            print("error - not a movie")
+                        }
                         print(self.dataSource)
                     } else {
                         self.dataSource = "Movie Not Found"
@@ -99,6 +105,12 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
                 })
                 .store(in: &disposables)
         }
+    }
+    
+    func fetchImage(movie: MovieProtocol) {
+        network.getPoster(from: movie, completion: { (data) in
+            self.imageSource = UIImage(data: data) ?? UIImage()
+        })
     }
     
     func errorHandler(value: Subscribers.Completion<NetworkError>) {

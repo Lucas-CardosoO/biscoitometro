@@ -77,6 +77,15 @@ class Network {
         return components
     }
     
+    private func makeImageComponents (path: String) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = MovieDBAPI.scheme
+        components.host = "image.tmdb.org"
+        components.path = "/t/p/original" + path
+        
+        return components
+    }
+    
     // MARK: - Search Request Functions
     
     func searchMovieCredits(movie id: Int) -> AnyPublisher<SearchMovieCreditsResult,NetworkError> {
@@ -97,6 +106,17 @@ class Network {
         return makeRequest(with: makeSearchArtistCreditsComponents(artist: id))
     }
     
+    func getPoster(from movie: MovieProtocol, completion: @escaping (Data) -> () ) {
+        getImage(from: movie.posterPath ?? "/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg") { data, response, error in
+            guard let data = data, error == nil else { return }
+            print("Download Finished")
+            DispatchQueue.main.async() {
+                completion(data)
+            }
+        }
+    }
+    
+    
     // MARK: - Make Request
     
     private func makeRequest <T> (with components: URLComponents) -> AnyPublisher<T, NetworkError> where T: Decodable  {
@@ -114,4 +134,9 @@ class Network {
             }
             .eraseToAnyPublisher()
     }
+    
+    private func getImage(from url: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: URLRequest(url: makeImageComponents(path: url).url ?? URL(fileURLWithPath: "https://image.tmdb.org/t/p/original//rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg")), completionHandler: completion).resume()
+    }
+    
 }
