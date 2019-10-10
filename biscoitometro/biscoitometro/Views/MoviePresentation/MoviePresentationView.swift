@@ -6,16 +6,21 @@
 //  Copyright © 2019 Lucas Cardoso. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
+import Combine
 
 struct MoviePresentationView: View {
+    @ObservedObject var viewModel: MoviePresentationViewModel
+    
+    init(viewModel: MoviePresentationViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         ZStack(alignment: .center){
-//            Image("posterTeste")
-//                .padding()
-            Image("posterTeste")
+            
+            Image(uiImage: viewModel.imageSource)
+                .scaledToFill()
             ZStack{
 
                 VStack {
@@ -25,7 +30,8 @@ struct MoviePresentationView: View {
                             .frame(width: 250, height: 100, alignment: .bottom)
                             .blur(radius: 40)
                         VStack {
-                            Text("Thor")
+//                            Text("Thor")
+                            Text(viewModel.title)
                                 .font(.largeTitle)
                                 .foregroundColor(.white)
                                 .fontWeight(.black)
@@ -44,9 +50,9 @@ struct MoviePresentationView: View {
     
 }
 
-struct MoviePresentationView_Preview: PreviewProvider {
-    static var previews: some View {
-        MoviePresentationView()
-        .previewLayout(.fixed(width: 300, height: 400))
-    }
-}
+//struct MoviePresentationView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        MoviePresentationView()
+//        .previewLayout(.fixed(width: 300, height: 400))
+//    }
+//}

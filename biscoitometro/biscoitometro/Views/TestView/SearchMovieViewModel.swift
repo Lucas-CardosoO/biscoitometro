@@ -97,7 +97,7 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
                     guard let self = self else { return }
                     if (artistCreditsResult.cast.count > 0) {
                         self.currMovie = artistCreditsResult.cast[0]
-                        print(self.currMovie)
+//                         print(self.currMovie)
                         self.dataSource = self.currMovie?.title ?? "Not a movie"
                     } else {
                         self.dataSource = "Artist not found"

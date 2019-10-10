@@ -9,6 +9,23 @@
 import Combine
 import SwiftUI
 
-class MoviePresentationViewModel {
+class MoviePresentationViewModel: ObservableObject, Identifiable {
+    let movie: MovieProtocol
+    let title: String
+    let network: Network
+    @Published var imageSource = UIImage()
     
+    init(movie: MovieProtocol, network: Network) {
+        self.movie = movie
+        self.title = movie.title
+        self.network = network
+        
+        self.fetchImage(movie: movie)
+    }
+    
+    func fetchImage(movie: MovieProtocol) {
+        network.getPoster(from: movie, completion: { (data) in
+            self.imageSource = UIImage(data: data) ?? UIImage()
+        })
+    }
 }
