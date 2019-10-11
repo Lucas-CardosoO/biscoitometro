@@ -16,26 +16,44 @@ struct SearchView: View {
     init(viewModel: SearchViewModel) {
         self.viewModel = viewModel
     }
+    
     var body: some View {
         VStack {
             VStack (alignment: .leading) {
                 Text("Ranking")
                 TextField("Search for a movie...", text: $viewModel.searchTerm)
             }
-            .padding()
+                .padding()
             VStack {
                 List{
-                    MoviePresentationView()
-                    .padding()
+                    if viewModel.movieDataSource.isEmpty {
+                        emptySection
+                    } else {
+                        moviePresentationSection
+                    }
                 }
             }
+        }
+    }
+    
+    var emptySection: some View {
+        Section {
+            Text(viewModel.textMessage)
+                .foregroundColor(.gray)
+        }
+    }
+    
+    var moviePresentationSection: some View {
+        Section {
+            ForEach(viewModel.movieDataSource, content: MoviePresentationView.init(viewModel:))
         }
     }
 }
 
 struct SearchView_Preview: PreviewProvider {
     static var previews: some View {
-        let vM = SearchViewModel()
+        let fetcher = Network()
+        let vM = SearchViewModel(fetcher: fetcher)
         return SearchView(viewModel: vM)
         
     }

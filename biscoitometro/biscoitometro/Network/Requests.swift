@@ -24,8 +24,8 @@ enum Requests {
             return "/search/person"
         case .artistCredits(let id):
             return "/person/\(id)/movie_credits"
-        default:
-            return "Request Error"
+//        default:
+//            return "Request Error"
         }
         
     }
