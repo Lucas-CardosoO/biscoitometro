@@ -13,17 +13,28 @@ import SwiftUI
 class MovieRateViewModel: ObservableObject, Identifiable {
     private let network: Network
     private var disposables = Set<AnyCancellable>()
-    var currMovie: MovieProtocol?
-    @Published var castDataSource: [ArtistProtocol] = [] //trocar para o artistpresentation que ainda n foi criado hehe
+    @Published var currMovie: MovieProtocol?
+    @Published var castDataSource: [RateCastViewModel] = []
 
     
     
-    init(fetcher: Network) {
+    init(fetcher: Network, movie: MovieProtocol?) {
         self.network = fetcher
+        self.currMovie = movie
+        
+        if let movie = currMovie {
+            
+        } else {
+            
+        }
     }
     
-    func moviePresentationViewModel() -> MoviePresentationViewModel {
-        return MoviePresentationViewModel(movie: currMovie!, network: network) // ATENCAAAAAAO Tirar !!!!!!
+    func moviePresentationViewModel() -> MoviePresentationViewModel{
+        if let currMovie = currMovie {
+            return MoviePresentationViewModel(movie: currMovie, network: network)
+        } else {
+            return MoviePresentationViewModel(movie: currMovie!, network: network) // VAI CRASHAAAAAAR ARRUMAR!!!!
+        }
     }
     
 }

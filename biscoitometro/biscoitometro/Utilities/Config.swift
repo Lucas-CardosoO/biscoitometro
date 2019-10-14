@@ -10,3 +10,5 @@ import Foundation
 import SwiftUI
 
 var posterWidth:CGFloat = 200
+
+var defaultMovie: MovieProtocol = MovieDecodable(id: 12, title: "Carregando", overview: "bad request", posterPath: nil, backdropPath: nil, releaseDate: "Nunca")

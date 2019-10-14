@@ -86,6 +86,19 @@ class Network {
         return components
     }
     
+    private func makeTrendingComponents () -> URLComponents {
+        var components = URLComponents()
+        components.scheme = MovieDBAPI.scheme
+        components.host = MovieDBAPI.host
+        components.path = MovieDBAPI.path + Requests.trending.path
+        
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: MovieDBAPI.key)
+        ]
+        
+        return components
+    }
+    
     // MARK: - Search Request Functions
     
     func searchMovieCredits(movie id: Int) -> AnyPublisher<SearchMovieCreditsResult,NetworkError> {
@@ -116,6 +129,9 @@ class Network {
         }
     }
     
+    func getTrending() -> AnyPublisher<SearchMovieResult, NetworkError> {
+        return makeRequest(with: makeTrendingComponents())
+    }
     
     // MARK: - Make Request
     

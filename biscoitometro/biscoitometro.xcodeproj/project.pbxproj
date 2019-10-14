@@ -150,10 +150,10 @@
 		17730E19234CFB4D00F8C6BF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				17730E1C234CFC3000F8C6BF /* Search */,
 				1707919A234D13BF00BD6F32 /* MoviePresentation */,
 				A1BC831F23465D0600682752 /* TestView */,
 				A1ECABEB2354FB48006CE36D /* MovieRate */,
-				17730E1C234CFC3000F8C6BF /* Search */,
 				A1F319342355088B00AF0421 /* RateCast */,
 			);
 			path = Views;

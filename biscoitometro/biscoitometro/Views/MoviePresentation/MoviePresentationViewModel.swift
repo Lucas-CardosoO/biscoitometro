@@ -24,9 +24,11 @@ class MoviePresentationViewModel: ObservableObject, Identifiable {
     }
     
     func fetchImage(movie: MovieProtocol) {
-        network.getPoster(from: movie, completion: { (data) in
-            self.imageSource = UIImage(data: data) ?? UIImage()
-        })
+        if let _ = movie.posterPath {
+            network.getPoster(from: movie, completion: { (data) in
+                self.imageSource = UIImage(data: data) ?? UIImage()
+            })
+        }
     }
     
     func getNextViewModel() -> MovieRateViewModel {
