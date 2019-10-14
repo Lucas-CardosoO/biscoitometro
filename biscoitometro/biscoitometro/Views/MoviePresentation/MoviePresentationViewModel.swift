@@ -28,4 +28,8 @@ class MoviePresentationViewModel: ObservableObject, Identifiable {
             self.imageSource = UIImage(data: data) ?? UIImage()
         })
     }
+    
+    func getNextViewModel() -> MovieRateViewModel {
+        return MovieRateViewModel(fetcher: network)
+    }
 }
