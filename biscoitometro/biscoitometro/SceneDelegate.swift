@@ -37,8 +37,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         
         let fetcher = Network()
-        let viewModel = SearchViewModel(fetcher: fetcher)
-        let view = SearchView(viewModel: viewModel)
+//        let viewModel = SearchViewModel(fetcher: fetcher)
+//        let view = SearchView(viewModel: viewModel)
+        let viewModel = MovieRateViewModel(fetcher: fetcher, movie: nil)
+        let view = MovieRateView(viewModel: viewModel)
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = UIHostingController(rootView: view)

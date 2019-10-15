@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ArtistDecodable: ArtistProtocol, Decodable {
+struct ArtistDecodable: ArtistProtocol, Decodable {
     let name: String
     let id: Int
     let profilePath: String?

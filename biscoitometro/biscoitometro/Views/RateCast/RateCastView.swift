@@ -9,19 +9,35 @@
 import SwiftUI
 
 struct RateCastView: View {
-    var viewModel: RateCastViewModel
+    @ObservedObject var viewModel: RateCastViewModel
     
     init(viewModel: RateCastViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Spacer()
+            Image(uiImage: viewModel.artistImage)
+                .frame(width: artistDimension, height: artistDimension, alignment: .center)
+                .clipped()
+                .padding()
+            Spacer()
+            VStack{
+                Text(viewModel.artistName)
+                .padding()
+                Text("Biscoitometro")
+                .padding()
+            }
+        .padding()
+            Spacer()
+        }
     }
 }
 
-//struct RateCastView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RateCastView()
-//    }
-//}
+struct RateCastView_Previews: PreviewProvider {
+    static var previews: some View {
+        RateCastView(viewModel: RateCastViewModel(fetcher: Network(), artist: artistTest))
+        .previewLayout(.fixed(width: 400, height: 150))
+    }
+}
