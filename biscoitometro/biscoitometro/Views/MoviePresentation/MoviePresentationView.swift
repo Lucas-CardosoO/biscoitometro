@@ -20,25 +20,28 @@ struct MoviePresentationView: View {
         ZStack(alignment: .center){
             
             Image(uiImage: viewModel.imageSource)
-                .scaledToFill()
-            ZStack{
+                .resizable()
+                .frame(width: posterWidth, height: posterWidth*40/27, alignment: .center)
+            ZStack(alignment: .center){
 
                 VStack {
                     Spacer()
                     ZStack {
                         Rectangle()
-                            .frame(width: 250, height: 100, alignment: .bottom)
+                            .frame(width: posterWidth, height: 0.4*posterWidth, alignment: .bottom)
                             .blur(radius: 40)
                         VStack {
-//                            Text("Thor")
                             Text(viewModel.title)
-                                .font(.largeTitle)
+                                .font(.title)
                                 .foregroundColor(.white)
                                 .fontWeight(.black)
+                                .lineLimit(3)
+                                .multilineTextAlignment(.center)
+                                .frame(width: posterWidth, height: 0.4*posterWidth, alignment: .bottom)
                             Text("biscoitometro")
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
                         }
                     }
                 }

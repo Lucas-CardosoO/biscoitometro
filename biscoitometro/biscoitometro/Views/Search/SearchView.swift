@@ -24,7 +24,7 @@ struct SearchView: View {
                 TextField("Search for a movie...", text: $viewModel.searchTerm)
             }
                 .padding()
-            VStack {
+            VStack(alignment: .center) {
                 List{
                     if viewModel.movieDataSource.isEmpty {
                         emptySection
