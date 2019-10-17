@@ -18,6 +18,8 @@ class MovieRateViewModel: ObservableObject, Identifiable {
     @Published var castDataSource: [RateCastViewModel] = []
     @Published var textMessage = "Loading"
     var moviesInPage: [MovieProtocol] = []
+    var currMovieIndex = 0
+    var currPopularPage = 1
     
     
     init(fetcher: Network, movie: MovieProtocol?) {
@@ -29,12 +31,12 @@ class MovieRateViewModel: ObservableObject, Identifiable {
             self.fetchCast()
         } else {
             self.moviePresentationViewModel = MoviePresentationViewModel(network: network)
-            self.fetchTrending()
+            self.fetchPopular(currPage: currPopularPage)
         }
     }
     
-    func fetchTrending() {
-        network.getTrending()
+    func fetchPopular(currPage: Int) {
+        network.getPopular(page: currPage)
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: errorHandler(value:),
@@ -43,7 +45,8 @@ class MovieRateViewModel: ObservableObject, Identifiable {
                     
                     self.moviesInPage = movieResult.results
                     self.currMovie = self.moviesInPage[0]
-                    self.moviePresentationViewModel.setMovie(movie: self.currMovie ?? defaultMovie)
+//                    self.moviePresentationViewModel.setMovie(movie: self.currMovie ?? defaultMovie)
+                    self.changeMovie()
                     self.fetchCast()
             })
         .store(in: &disposables)
@@ -101,4 +104,41 @@ class MovieRateViewModel: ObservableObject, Identifiable {
                 self.textMessage = "Unknown Error"
         }
     }
+    
+    fileprivate func changeMovie() {
+        self.currMovie = moviesInPage[currMovieIndex]
+        
+        if let movie = currMovie {
+            self.moviePresentationViewModel = MoviePresentationViewModel(movie: movie, network: network)
+            self.fetchCast()
+        }
+    }
+    
+    func nextMovie() {
+        if currMovieIndex < moviesInPage.count - 1 {
+            self.currMovieIndex += 1
+            changeMovie()
+        } else {
+            currPopularPage += 1
+            if currPopularPage > 500 {
+                currPopularPage = 0
+            }
+            fetchPopular(currPage: self.currPopularPage)
+            currMovieIndex = 0
+        }
+    }
+    
+    func previousMovie() {
+        if currMovieIndex > 0 {
+            self.currMovieIndex -= 1
+            changeMovie()
+        } else {
+            if currPopularPage > 1 {
+                currPopularPage -= 1
+                fetchPopular(currPage: self.currPopularPage)
+                currMovieIndex = moviesInPage.count - 1
+            }
+        }
+    }
+    
 }

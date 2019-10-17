@@ -19,7 +19,8 @@ struct RateCastView: View {
         HStack {
             Spacer()
             Image(uiImage: viewModel.artistImage)
-                .frame(width: artistDimension, height: artistDimension, alignment: .center)
+//                .scaleEffect(1/8, anchor: .center)
+                .frame(width: artistDimension*2/3, height: artistDimension, alignment: .center)
                 .clipped()
                 .padding()
             Spacer()

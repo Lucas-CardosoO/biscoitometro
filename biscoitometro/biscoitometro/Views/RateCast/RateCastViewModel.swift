@@ -26,7 +26,10 @@ class RateCastViewModel: ObservableObject, Identifiable {
     func fetchImage(artist: ArtistProtocol) {
         if let path = artist.profilePath {
             network.getImage(from: path, completion: { (data) in
-                self.artistImage = UIImage(data: data) ?? UIImage()
+                var image = UIImage(data: data) ?? UIImage()
+                
+                image = resizedImageWith(image: image, targetSize: CGSize(width: artistDimension*2/3, height: artistDimension))
+                self.artistImage = image
             })
         }
     }

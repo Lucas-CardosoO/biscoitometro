@@ -86,14 +86,15 @@ class Network {
         return components
     }
     
-    private func makeTrendingComponents () -> URLComponents {
+    private func makePopularComponents (page: Int) -> URLComponents {
         var components = URLComponents()
         components.scheme = MovieDBAPI.scheme
         components.host = MovieDBAPI.host
-        components.path = MovieDBAPI.path + Requests.trending.path
+        components.path = MovieDBAPI.path + Requests.popular.path
         
         components.queryItems = [
-            URLQueryItem(name: "api_key", value: MovieDBAPI.key)
+            URLQueryItem(name: "api_key", value: MovieDBAPI.key),
+            URLQueryItem(name: "page", value: String(page))
         ]
         
         return components
@@ -129,8 +130,8 @@ class Network {
         }
     }
     
-    func getTrending() -> AnyPublisher<SearchMovieResult, NetworkError> {
-        return makeRequest(with: makeTrendingComponents())
+    func getPopular(page: Int) -> AnyPublisher<SearchMovieResult, NetworkError> {
+        return makeRequest(with: makePopularComponents(page: page))
     }
     
     // MARK: - Make Request
