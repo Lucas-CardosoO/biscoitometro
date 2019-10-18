@@ -9,14 +9,24 @@
 import SwiftUI
 
 struct MovieRateView: View {
-    var viewModel: MovieRateViewModel
+    @ObservedObject var viewModel: MovieRateViewModel
     
     var body: some View {
-        VStack(alignment: .center){
+        VStack(){
             Text("Genre")
-            MoviePresentationView(viewModel: viewModel.moviePresentationViewModel())
+            HStack {
+                Button(action: self.viewModel.previousMovie, label: {
+                Text("<")
+                }).padding()
+                Spacer()
+                MoviePresentationView(viewModel: viewModel.moviePresentationViewModel)
+                Spacer()
+                Button(action: self.viewModel.nextMovie, label: {
+                    Text(">")
+                    }).padding()
+            }
+            Text("Rate the artists")
             List {
-                Text("Rate the artists")
                 if viewModel.castDataSource.isEmpty {
                     emptySection
                 } else {
@@ -28,7 +38,7 @@ struct MovieRateView: View {
     
     var emptySection: some View {
         Section {
-            Text("Loading")
+            Text(viewModel.textMessage)
                 .foregroundColor(.gray)
         }
     }

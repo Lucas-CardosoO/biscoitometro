@@ -13,7 +13,7 @@ enum Requests {
     case movieCredits(id: Int)
     case searchArtist
     case artistCredits(id: Int)
-    case trending
+    case popular
     
     var path: String {
         switch self {
@@ -25,8 +25,8 @@ enum Requests {
             return "/search/person"
         case .artistCredits(let id):
             return "/person/\(id)/movie_credits"
-        case .trending:
-            return "/trending/movie/day"
+        case .popular:
+            return "/movie/popular"
 //        default:
 //            return "Request Error"
         }

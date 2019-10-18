@@ -86,14 +86,15 @@ class Network {
         return components
     }
     
-    private func makeTrendingComponents () -> URLComponents {
+    private func makePopularComponents (page: Int) -> URLComponents {
         var components = URLComponents()
         components.scheme = MovieDBAPI.scheme
         components.host = MovieDBAPI.host
-        components.path = MovieDBAPI.path + Requests.trending.path
+        components.path = MovieDBAPI.path + Requests.popular.path
         
         components.queryItems = [
-            URLQueryItem(name: "api_key", value: MovieDBAPI.key)
+            URLQueryItem(name: "api_key", value: MovieDBAPI.key),
+            URLQueryItem(name: "page", value: String(page))
         ]
         
         return components
@@ -119,8 +120,8 @@ class Network {
         return makeRequest(with: makeSearchArtistCreditsComponents(artist: id))
     }
     
-    func getPoster(from movie: MovieProtocol, completion: @escaping (Data) -> () ) {
-        getImage(from: movie.posterPath ?? "/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg") { data, response, error in
+    func getImage(from path: String, completion: @escaping (Data) -> () ) {
+        makeImageTask(from: path) { data, response, error in
             guard let data = data, error == nil else { return }
             print("Download Finished")
             DispatchQueue.main.async() {
@@ -129,8 +130,8 @@ class Network {
         }
     }
     
-    func getTrending() -> AnyPublisher<SearchMovieResult, NetworkError> {
-        return makeRequest(with: makeTrendingComponents())
+    func getPopular(page: Int) -> AnyPublisher<SearchMovieResult, NetworkError> {
+        return makeRequest(with: makePopularComponents(page: page))
     }
     
     // MARK: - Make Request
@@ -151,7 +152,7 @@ class Network {
             .eraseToAnyPublisher()
     }
     
-    private func getImage(from url: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    private func makeImageTask(from url: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: URLRequest(url: makeImageComponents(path: url).url ?? URL(fileURLWithPath: "https://image.tmdb.org/t/p/original//rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg")), completionHandler: completion).resume()
     }
     

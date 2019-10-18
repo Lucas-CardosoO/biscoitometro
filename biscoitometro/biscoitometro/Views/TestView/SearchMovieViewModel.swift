@@ -108,7 +108,7 @@ class SearchMovieViewModel: ObservableObject, Identifiable {
     }
     
     func fetchImage(movie: MovieProtocol) {
-        network.getPoster(from: movie, completion: { (data) in
+        network.getImage(from: movie.posterPath!, completion: { (data) in
             self.imageSource = UIImage(data: data) ?? UIImage()
         })
     }
