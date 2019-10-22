@@ -42,7 +42,7 @@ class MoviePresentationViewModel: ObservableObject, Identifiable {
         }
     }
     
-    func getNextViewModel() -> MovieRateViewModel {
-        return MovieRateViewModel(fetcher: self.network, movie: self.movie)
+    func getNextViewModel() -> MovieDetailViewModel {
+        return MovieDetailViewModel(fetcher: self.network, movie: self.movie)
     }
 }

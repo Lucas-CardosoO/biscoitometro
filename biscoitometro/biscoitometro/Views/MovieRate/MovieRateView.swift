@@ -25,7 +25,6 @@ struct MovieRateView: View {
                     Text(">")
                     }).padding()
             }
-            Text("Rate the artists")
             List {
                 if viewModel.castDataSource.isEmpty {
                     emptySection
@@ -37,14 +36,14 @@ struct MovieRateView: View {
     }
     
     var emptySection: some View {
-        Section {
+        Section (header: Text("Rate the artist")) {
             Text(viewModel.textMessage)
                 .foregroundColor(.gray)
         }
     }
     
     var artistsSection: some View {
-        Section {
+        Section (header: Text("Rate the artist")) {
             ForEach(viewModel.castDataSource, content: RateCastView.init(viewModel:))
         }
     }

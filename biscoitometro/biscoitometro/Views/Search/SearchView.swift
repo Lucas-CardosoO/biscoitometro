@@ -18,21 +18,23 @@ struct SearchView: View {
     }
     
     var body: some View {
-        VStack {
-            VStack (alignment: .leading) {
-                Text("Ranking")
-                TextField("Search for a movie...", text: $viewModel.searchTerm)
-            }
-                .padding()
-            VStack(alignment: .center) {
-                List{
-                    if viewModel.movieDataSource.isEmpty {
-                        emptySection
-                    } else {
-                        moviePresentationSection
+        NavigationView{
+            VStack {
+                VStack (alignment: .leading) {
+                    TextField("Search for a movie...", text: $viewModel.searchTerm)
+                }
+                    .padding()
+                VStack(alignment: .center) {
+                    List{
+                        if viewModel.movieDataSource.isEmpty {
+                            emptySection
+                        } else {
+                            moviePresentationSection
+                        }
                     }
                 }
             }
+            .navigationBarTitle("Ranking")
         }
     }
     
@@ -45,7 +47,13 @@ struct SearchView: View {
     
     var moviePresentationSection: some View {
         Section {
-            ForEach(viewModel.movieDataSource, content: MoviePresentationView.init(viewModel:))
+            ForEach(viewModel.movieDataSource) {
+                (element: MoviePresentationViewModel) in
+                NavigationLink(destination: MovieDetailView(viewModel: element.getNextViewModel())){
+                    MoviePresentationView.init(viewModel: element)
+                }
+            }
+            
         }
     }
 }
